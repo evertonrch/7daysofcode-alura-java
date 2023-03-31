@@ -2,11 +2,15 @@ package com.demo.api;
 
 import com.demo.api.model.ImdbJson;
 import com.demo.api.model.Movie;
+import com.demo.api.view.HTMLGenerator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.Writer;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -19,9 +23,9 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 public class App {
-    private static final String keyValue = "k_3fz2d7wz";
+    private static final String keyValue = "";
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         String json = null;
         try {
             json = getResponseBody(getRequest(getUri(keyValue)));
@@ -41,6 +45,10 @@ public class App {
 
         List<String> titles = parseTitles(imdbJson);
         List<String> urlImages = parseUrlImages(imdbJson);
+
+        List<Movie> movies = Arrays.asList(imdbJson.getItems());
+        PrintWriter writer = new PrintWriter("content.html");
+        new HTMLGenerator(writer).generate(movies);
 
 
 //        JsonNode jsonNode = jsonNode(mapper, json);
