@@ -1,8 +1,9 @@
-package com.demo.api.model;
+package com.demo.api.model.imdb;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.demo.api.model.Content;
 
-public class Movie {
+public class Movie implements Content {
+
     private String id;
     private String rank;
     private String title;
@@ -29,6 +30,7 @@ public class Movie {
         this.rank = rank;
     }
 
+    @Override
     public String getTitle() {
         return title;
     }
@@ -44,7 +46,7 @@ public class Movie {
     public void setFullTitle(String fullTitle) {
         this.fullTitle = fullTitle;
     }
-
+    @Override
     public String getYear() {
         return year;
     }
@@ -52,7 +54,7 @@ public class Movie {
     public void setYear(String year) {
         this.year = year;
     }
-
+    @Override
     public String getImage() {
         return image;
     }
@@ -69,7 +71,7 @@ public class Movie {
         this.crew = crew;
     }
 
-    public String getImDbRating() {
+    public String getRating() {
         return imDbRating;
     }
 
