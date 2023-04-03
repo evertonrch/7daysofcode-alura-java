@@ -4,8 +4,6 @@ import com.demo.api.client.APIClient;
 import com.demo.api.client.ImdbApiClient;
 import com.demo.api.client.MarvelApiClient;
 import com.demo.api.model.Content;
-import com.demo.api.model.imdb.ImdbJson;
-import com.demo.api.model.marvel.MarvelResponseJson;
 import com.demo.api.utils.ImdbJsonParse;
 import com.demo.api.utils.JsonParse;
 import com.demo.api.utils.MarvelJsonParse;
@@ -13,15 +11,12 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.net.URISyntaxException;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
 public class BootstrapApp {
 
-    private int option;
     private final ObjectMapper mapper = new ObjectMapper();
 
     // IMDB key

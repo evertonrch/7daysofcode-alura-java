@@ -7,6 +7,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.URISyntaxException;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,6 +22,7 @@ public class App {
         int option = scanner.nextInt();
 
         List<Content> contents = new BootstrapApp(option).content();
+        Collections.sort(contents);
 
         PrintWriter writer = null;
         try {

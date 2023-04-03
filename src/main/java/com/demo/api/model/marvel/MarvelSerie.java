@@ -40,4 +40,9 @@ public class MarvelSerie implements Content {
     public int getId() {
         return id;
     }
+
+    @Override
+    public int compareTo(Content content) {
+        return this.year.compareTo(content.getYear());
+    }
 }

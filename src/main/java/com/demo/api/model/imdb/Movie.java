@@ -86,4 +86,10 @@ public class Movie implements Content {
     public void setImDbRatingCount(String imDbRatingCount) {
         this.imDbRatingCount = imDbRatingCount;
     }
+
+
+    @Override
+    public int compareTo(Content content) {
+        return this.title.compareTo(content.getTitle());
+    }
 }
